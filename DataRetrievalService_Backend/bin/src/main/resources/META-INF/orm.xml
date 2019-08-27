@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+	version="1.0">
+	<description>My First JPA XML Application</description>
+	<package>com.sapient.data.model</package>
+	<entity class="com.sapient.data.model.User" name="User">
+		<table name="Register" />
+		<attributes>
+			<id name="userID">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="emailID">
+				<column name="emailid" />
+			</basic>
+			<basic name="emailConfirmationFlag">
+				<column name="emailConfirmationFlag" />
+			</basic>
+			<one-to-one name="password" fetch="EAGER">
+				<cascade>
+					<cascade-all />
+				</cascade>
+			</one-to-one>
+		</attributes>
+	</entity>
+	
+	<entity class="com.sapient.data.model.Password" name="Password">
+		<table name="PasswordHistory" />
+		<attributes>
+			<id name="passId">
+				<generated-value strategy="AUTO" />
+			</id>
+			<basic name="pwd1">
+				<column name="password1" />
+			</basic>
+			<basic name="salt1">
+				<column name="salt1" />
+			</basic>
+			<basic name="pwd2">
+				<column name="password2" />
+			</basic>
+			<basic name="salt2">
+				<column name="salt2" />
+			</basic>
+			<basic name="pwd3">
+				<column name="password3" />
+			</basic>
+			<basic name="salt3">
+				<column name="salt3" />
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>
